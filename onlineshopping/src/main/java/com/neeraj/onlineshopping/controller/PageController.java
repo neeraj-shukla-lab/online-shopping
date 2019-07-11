@@ -1,7 +1,6 @@
 package com.neeraj.onlineshopping.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -12,26 +11,31 @@ public class PageController {
 
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView("page");
-		mv.addObject("greeting", "Welcome to Spring Web-Mvc");
+		mv.addObject("title", "Home");
+		mv.addObject("userClickHome", "True");
 
 		return mv;
 	}
+	
+	@RequestMapping(value = "/about")
 
-	/*
-	 * @RequestMapping(value="/test") public ModelAndView
-	 * Test(@RequestParam(value="greeting",required=false) String greeting) {
-	 * if(greeting==null) { greeting="Hello There"; }
-	 * 
-	 * 
-	 * ModelAndView mv=new ModelAndView("page"); return mv.addObject("greeting",
-	 * greeting); }
-	 */
-
-	@RequestMapping(value = "/test/{greeting}")
-	public ModelAndView Test(@PathVariable(value = "greeting", required = false) String greeting) {
-
+	public ModelAndView about() {
 		ModelAndView mv = new ModelAndView("page");
-		return mv.addObject("greeting", greeting);
-	}
+		mv.addObject("title", "About Us");
+		mv.addObject("userClickAbout", "True");
 
+		return mv;
+	}
+	
+	@RequestMapping(value = "/contact")
+
+	public ModelAndView contact() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("title", "Contact Us");
+		mv.addObject("userClickContact", "True");
+
+		return mv;
+	}
+	
+	
 }
