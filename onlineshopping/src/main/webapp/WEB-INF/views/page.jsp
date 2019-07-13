@@ -62,11 +62,22 @@ window.menu='${title}';
 
 	</c:if>
 	<!-- Load only when user clicks contact -->
-<c:if test="${userClickContact==true}">
+    <c:if test="${userClickContact==true}">
 	
 	<%@include file="contact.jsp" %>
 	
 	</c:if>
+	
+	<!-- Load only when user clicks AllProducts or CategoryProducts contact -->
+	
+	 <c:if test="${userClickAllProducts==true or userClickCategoryProducts==true}">
+	
+	<%@include file="listProducts.jsp" %>
+	
+	</c:if>
+	
+	
+	
 	</div>
 	<!-- Footer Comes here -->
 	<%@include file="./shared/footer.jsp"%>
